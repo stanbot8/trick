@@ -86,17 +86,10 @@ void funcsub(char *str)
                         }
                 }
                 if (ii == NUM_FUNCTIONS) {
-                        /* Didn't find a function match */
-                        if (isalpha(equation[start + 1])) {
-                                /* Syntax error since variables must be one char */
-                                eqp_errno = 14;
-                                free(temp);
-                                return;
-                        } else {
-                                /* We have a variable */
-                                func = 0;       /* Character is a variable */
-                                temp[start] = equation[start];
-                        }
+                    /* Syntax error since variables must be one char */
+                    eqp_errno = 14;
+                    free(temp);
+                    return;
                 }
 
                 offset = strlen(function_names[ii]);
