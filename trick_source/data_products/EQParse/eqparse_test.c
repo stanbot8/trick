@@ -14,6 +14,19 @@ int main()
         int ret;
         div_t divt;
 
+        // Unknown identifier with underscore
+        strcpy(equation1, "x_");
+        strcpy(equation2, equation1);
+        funcsub(equation1);
+        if (eqp_errno != 14)
+        {
+            printf("[FAIL] %s %d\n", equation2, eqp_errno);
+            return (-1);
+        }
+        else
+        {
+            printf("[PASS] %s\n", equation2);
+        }
 
        /*-------------------------------------------------------
         *   Test math functions
