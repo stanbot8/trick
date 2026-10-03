@@ -1,0 +1,32 @@
+{
+  "definition_blob_sha1": {
+    ".github/workflows/alpha-bridge-ci-verify.yml": "0588ba302e7a97a9721ae7494f6b9aca053476b6",
+    ".github/workflows/alt_linux_distros.yml": "c81696b18fcbfaedaa45b882692e19ca9541a5ea",
+    ".github/workflows/docker.yml": "d73804edaf6ab5095a2e85e9a9f3f6441964fe72",
+    ".github/workflows/test_32_oracle.yml": "08b44e2a3691d91221fae6c8dc063c06049345c8",
+    ".github/workflows/test_linux_py2.yml": "173a3031fb202a3a669095b57a6b9d85cc3b5dbc",
+    ".github/workflows/test_llvm_compat.yml": "0d7be2cc1ac2ecd5be4f374087a4d9baf984f2a4"
+  },
+  "definition_sha256": {
+    ".github/workflows/alpha-bridge-ci-verify.yml": "d3dacd19a9c94cd86ca5ba24b075c35f3ff224d155ca5891f3b4325ece933dac",
+    ".github/workflows/alt_linux_distros.yml": "77eb9fa1d3ffdbf05b42859d6193c243c58fd254ee4d94363f910ed9bf95e218",
+    ".github/workflows/docker.yml": "2ecc30df8139bbc0f31d07c69803b508211d4128064314e3eae6c9380a234ea7",
+    ".github/workflows/test_32_oracle.yml": "1d91572c70c3236248429a142fd4cf0d62ceac31a8886a328fdbf625349e4c29",
+    ".github/workflows/test_linux_py2.yml": "395372ea8b3ac8ebaebb615ba5b75a3114683342a121353ca5a4d11759c34d0b",
+    ".github/workflows/test_llvm_compat.yml": "200c7dca85d14cb1c44290458f9e94e93f77e1fd389b76ea8fd84490b9b71450"
+  },
+  "generator_sha256": "f238e5d52b0ec5c07f088af203f93698fbdea22a995856dc18c50f5365431353",
+  "schema": "alpha-bridge/fork-ci",
+  "source_branch": "master",
+  "source_commit": "04f492da4eb93caa2873d02509353497aa65e4b2",
+  "source_repository": "nasa/trick",
+  "version": 1,
+  "workflows": [
+    ".github/workflows/alpha-bridge-ci-verify.yml",
+    ".github/workflows/alt_linux_distros.yml",
+    ".github/workflows/docker.yml",
+    ".github/workflows/test_32_oracle.yml",
+    ".github/workflows/test_linux_py2.yml",
+    ".github/workflows/test_llvm_compat.yml"
+  ]
+}
