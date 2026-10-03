@@ -1,21 +1,27 @@
 {
   "definition_blob_sha1": {
-    ".github/workflows/alpha-bridge-ci-verify.yml": "211d78b275bbb87055d46d18edfc9b309afb7fd3",
-    ".github/workflows/alt_linux_distros.yml": "0234fc477393c669922a92cad608bb4b3d2d86b4",
-    ".github/workflows/docker.yml": "ca88d4df110914912f94d3aed895de925fef3f99",
-    ".github/workflows/test_32_oracle.yml": "6245038b765d3da86cccb20463bd9c4a31fb3123",
-    ".github/workflows/test_linux_py2.yml": "dcfae4835fa36f31bfca700ac4530db3eaa6bf5b",
-    ".github/workflows/test_llvm_compat.yml": "25c4afc8de4f626339f0afddfdd5a02b145c1499"
+    ".github/workflows/alpha-bridge-ci-verify.yml": "21051178fb840f31162cde1a64943007a2178f3f",
+    ".github/workflows/alt_linux_distros.yml": "512ef71bf2968d7dad8223edd4a7f040508e207e",
+    ".github/workflows/docker.yml": "96be92d13164bf121a13b14eac237cdde42ed479",
+    ".github/workflows/report_alt_linux_distros.yml": "024df05d15061d38dc410b88bc7a58113805c8fb",
+    ".github/workflows/report_linux_py2.yml": "7b8ce88fbbaf398d2dcc8c1a11659c6e99c38f70",
+    ".github/workflows/test-report.yml": "f7e948f7bb0a99a42ae3b15db638edf06495324c",
+    ".github/workflows/test_32_oracle.yml": "075bfd0539cd61d4a9f5ea234feb1e7fa495706f",
+    ".github/workflows/test_linux_py2.yml": "d30512172c1628d150a0827b6986e29f4ac10821",
+    ".github/workflows/test_llvm_compat.yml": "33c7de4b9af9dc486c7dfbbb7c3bf0eeee186f0c"
   },
   "definition_sha256": {
-    ".github/workflows/alpha-bridge-ci-verify.yml": "4cac5461d20019fd71bd15ab6e775a433bcfc570d3cc96f9132a4bf68d15c04e",
-    ".github/workflows/alt_linux_distros.yml": "b4bcc6932bca07e6a40423ae416905a54e2d08a5dd281351e43600a0229c037d",
-    ".github/workflows/docker.yml": "6c50a269509ee01947769ce5f91a64ce89f68715729714ba12776ba84ddcc760",
-    ".github/workflows/test_32_oracle.yml": "82ae008608cd19e5520fcec8cefae06861442c4166e066110ca8bec30e4ab848",
-    ".github/workflows/test_linux_py2.yml": "372be7f89ad648dcde6b615e8cc28c1dd0a13fa8f3bd9c199e10efb3d351d457",
-    ".github/workflows/test_llvm_compat.yml": "0f7e37feef29c85edb43839f2d97192e295eb560f23b02327ac331e80d4579d1"
+    ".github/workflows/alpha-bridge-ci-verify.yml": "f1d0d506e1faf2ef9e00102fbf464fa1a74203bf3463e623621402b9de9e8a45",
+    ".github/workflows/alt_linux_distros.yml": "0892b32786c4367e76daf02f6497ffd2f956fd2fa3d7d960966c1431aecc41b4",
+    ".github/workflows/docker.yml": "577cbd84efd013f60d4d1ed18d651bc594924059e07ef951c17e5e8a0835d174",
+    ".github/workflows/report_alt_linux_distros.yml": "78a660ce6b3c70b39d8c0b2632b199f3b5583c7d8077c7b334cc546ad1d3e737",
+    ".github/workflows/report_linux_py2.yml": "0622a9ea63b19d556ae6558fa9ec73ce93235e0434171bee4156f7cf36c30ac2",
+    ".github/workflows/test-report.yml": "d0ad3b779f6fbc9f4d8e2a63a8ee8631c50719bd966c830c30adf9bb32da5988",
+    ".github/workflows/test_32_oracle.yml": "d25f358d3d923bfb5f27feefd7ffb1f424531f41dad12507c898fead34f5ed62",
+    ".github/workflows/test_linux_py2.yml": "f542e70ff3315957650097797139ee3297e18d5646c7c27ba3cfd981ddb84153",
+    ".github/workflows/test_llvm_compat.yml": "0f352d52af9f2381e721673f27d46af412c3b67f59bc2fbe8a34be3e49a5934e"
   },
-  "generator_sha256": "f5fbad0230ba7fa85305a317f424ab1f31bb96ff28ce023a46664fdaad8051c9",
+  "generator_sha256": "d20fb8b8348d1a9a5c6e1057d775b208188196d5c2634d6ec392227f92b995f5",
   "schema": "alpha-bridge/fork-ci",
   "source_branch": "master",
   "source_commit": "04f492da4eb93caa2873d02509353497aa65e4b2",
@@ -25,6 +31,9 @@
     ".github/workflows/alpha-bridge-ci-verify.yml",
     ".github/workflows/alt_linux_distros.yml",
     ".github/workflows/docker.yml",
+    ".github/workflows/report_alt_linux_distros.yml",
+    ".github/workflows/report_linux_py2.yml",
+    ".github/workflows/test-report.yml",
     ".github/workflows/test_32_oracle.yml",
     ".github/workflows/test_linux_py2.yml",
     ".github/workflows/test_llvm_compat.yml"
