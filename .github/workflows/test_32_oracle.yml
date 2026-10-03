@@ -11,16 +11,11 @@ jobs:
     container: docker://oraclelinux:8
     steps:
     - name: Add dnf repo
-      run: dnf -y install epel-release && dnf -y update
+      run: |-
+        dnf -y install epel-release && dnf -y update
     - name: Install other dependencies
-      run: >
-        dnf install -y tar bison clang clang-devel cmake diffutils expat-devel.i686
-        expat.i686 flex gcc gcc-c++ git glibc-devel.i686 glibc.i686 glibc.x86_64 gsl-devel
-        gsl-devel.i686 java-11-openjdk java-11-openjdk-devel libstdc++-devel libstdc++-devel.i686
-        libxml2-devel libxml2-devel.i686 llvm llvm-devel llvm-static make maven ncurses-devel
-        ncurses-devel.i686 motif motif-devel perl perl-Digest-MD5 python2-devel python3-devel
-        python3-libs.i686 swig tar udunits2 udunits2-devel wget which zip zlib-devel
-        zlib-devel.i686
+      run: |
+        dnf install -y tar bison clang clang-devel cmake diffutils expat-devel.i686 expat.i686 flex gcc gcc-c++ git glibc-devel.i686 glibc.i686 glibc.x86_64 gsl-devel gsl-devel.i686 java-11-openjdk java-11-openjdk-devel libstdc++-devel libstdc++-devel.i686 libxml2-devel libxml2-devel.i686 llvm llvm-devel llvm-static make maven ncurses-devel ncurses-devel.i686 motif motif-devel perl perl-Digest-MD5 python2-devel python3-devel python3-libs.i686 swig tar udunits2 udunits2-devel wget which zip zlib-devel zlib-devel.i686
     - name: Symlink python
       run: |
         ln -s /lib/libpython3.6m.so.1.0 /lib/libpython3.6m.so
@@ -102,7 +97,7 @@ jobs:
         AB_RUN_ID: ${{ github.run_id }}
         AB_HEAD_SHA: 04f492da4eb93caa2873d02509353497aa65e4b2
         AB_WORKFLOW_DIGEST: 
-          4068b2a8cf0b5b72952162a302444868b2f4323a632fc04dc12dc41668062c9e
+          30f6feacf61543dc78e67a5e40998f8aa5d69ce8065b573eb087720b5e3d27ec
         AB_EVENT: ${{ github.event_name }}
         AB_SCHEDULE: ${{ github.event.schedule || '' }}
         AB_VARIABLES: ${{ toJSON(vars) }}

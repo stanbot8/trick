@@ -75,12 +75,14 @@ jobs:
     container: docker://${{matrix.cfg.os}}:${{matrix.cfg.tag}}
     steps:
     - name: Update Package Manager
-      run: ${{matrix.conf_pkg}}
+      run: |-
+        ${{matrix.conf_pkg}}
     - name: Install Dependencies
-      run: >
+      run: |
         ${{matrix.pkg_mgr}}  ${{matrix.install_cmd}}  ${{matrix.deps}}  ${{matrix.arch_deps}}  ${{matrix.os_deps}}  ${{matrix.tag_deps}}
     - name: Install GTest
-      run: ${{matrix.install_gtest}}
+      run: |-
+        ${{matrix.install_gtest}}
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
@@ -145,7 +147,7 @@ jobs:
         AB_RUN_ID: ${{ github.run_id }}
         AB_HEAD_SHA: 04f492da4eb93caa2873d02509353497aa65e4b2
         AB_WORKFLOW_DIGEST: 
-          bd394aa6ea97fea6a011a617d019055703a46902eba60f9b9128b7563cb47006
+          d5e780596c644b05f61b05c951379f034777689e42cc76dd337c748c4a0e95b8
         AB_EVENT: ${{ github.event_name }}
         AB_SCHEDULE: ${{ github.event.schedule || '' }}
         AB_VARIABLES: ${{ toJSON(vars) }}
