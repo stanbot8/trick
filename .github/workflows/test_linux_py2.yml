@@ -10,11 +10,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cfg: - {os: ubuntu, tag: 22.04, arch: debian, arch_ver: 12}
+        cfg:
+#-------- Operating Systems ----------------
+        - {os: ubuntu, tag: 22.04, arch: debian, arch_ver: 12}
         - {os: rockylinux, tag: 8, arch: rhel, arch_ver: 8}
         - {os: oraclelinux, tag: 8, arch: rhel, arch_ver: 8}
-        python:
-        - 2
+        python: [2]
 
 #-------- Defaults --------------------------
         include:
@@ -144,7 +145,7 @@ jobs:
         AB_RUN_ID: ${{ github.run_id }}
         AB_HEAD_SHA: 04f492da4eb93caa2873d02509353497aa65e4b2
         AB_WORKFLOW_DIGEST: 
-          ba400b05b1817c50e8c41f5fa605a0f2d93f8c7c4b5c470412fc4c03e29b6b88
+          bd394aa6ea97fea6a011a617d019055703a46902eba60f9b9128b7563cb47006
         AB_EVENT: ${{ github.event_name }}
         AB_SCHEDULE: ${{ github.event.schedule || '' }}
         AB_VARIABLES: ${{ toJSON(vars) }}

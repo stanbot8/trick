@@ -9,8 +9,7 @@ jobs:
     container: docker://nasatrick/${{matrix.container}}:latest
     strategy:
       matrix:
-        container:
-        - trick_ubuntu1804
+        container: [trick_ubuntu1804]
     steps:
     - name: run tests
       run: |
@@ -42,7 +41,7 @@ jobs:
         AB_RUN_ID: ${{ github.run_id }}
         AB_HEAD_SHA: 04f492da4eb93caa2873d02509353497aa65e4b2
         AB_WORKFLOW_DIGEST: 
-          26e0e5efa25a578b7530e0cb71c47354fe045a0cd79f38aaa4382ba8f15063c4
+          bbee09798a704269ac7d131e88f587663ff5fe34e23930b067f28b149ab56ee4
         AB_EVENT: ${{ github.event_name }}
         AB_SCHEDULE: ${{ github.event.schedule || '' }}
         AB_VARIABLES: ${{ toJSON(vars) }}

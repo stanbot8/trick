@@ -2,8 +2,7 @@ name: Report More Linux
 
 on:
   workflow_run:
-    workflows:                # runs after CI workflow
-    - More Linux
+    workflows: [More Linux]   # runs after CI workflow
     types:
     - completed
 jobs:
@@ -11,13 +10,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cfg: - {os: ubuntu, tag: 20.04, arch: debian, arch_ver: 11}
+        cfg:
+          #-------- Operating Systems ----------------
+        - {os: ubuntu, tag: 20.04, arch: debian, arch_ver: 11}
         - {os: debian, tag: 11, arch: debian, arch_ver: 11}
         - {os: debian, tag: bookworm, arch: debian, arch_ver: 12}
         - {os: almalinux, tag: 8, arch: rhel, arch_ver: 8}
-        python:
-        - 2
-        - 3
+        python: [2, 3]
         #-------- Exclude bookworm on python 2 ---------------------
         exclude:
         - cfg: {tag: bookworm}
@@ -58,7 +57,7 @@ jobs:
         AB_RUN_ID: ${{ github.run_id }}
         AB_HEAD_SHA: 04f492da4eb93caa2873d02509353497aa65e4b2
         AB_WORKFLOW_DIGEST: 
-          40823d36a5f3acf7d51f584504ad90c92c9b41e5bc7db00cc2eb02666c050282
+          7865362ab26a339a13332ccbe280d4436fe4a04337fe8b326188e0ad97095191
         AB_EVENT: ${{ github.event_name }}
         AB_SCHEDULE: ${{ github.event.schedule || '' }}
         AB_VARIABLES: ${{ toJSON(vars) }}

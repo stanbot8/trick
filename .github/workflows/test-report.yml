@@ -9,10 +9,8 @@ run-name: >-
 
 on:
   workflow_run:
-    workflows:
-    - CI
-    types:
-    - completed
+    workflows: [CI]
+    types: [completed]
 
 permissions:
   contents: read
@@ -61,7 +59,7 @@ jobs:
         AB_RUN_ID: ${{ github.run_id }}
         AB_HEAD_SHA: 04f492da4eb93caa2873d02509353497aa65e4b2
         AB_WORKFLOW_DIGEST: 
-          a6e2ec09d38a87611d1e626d651032141cb25683d33f0aa83722573a9b1ed1b2
+          7c54a9792a8969848cf43ce2cabecdf8c3e3dc66fd3bbb9f1e8eb4a4e15225bd
         AB_EVENT: ${{ github.event_name }}
         AB_SCHEDULE: ${{ github.event.schedule || '' }}
         AB_VARIABLES: ${{ toJSON(vars) }}
