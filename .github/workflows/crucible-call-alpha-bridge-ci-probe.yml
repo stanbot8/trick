@@ -1,91 +1,36 @@
-name: CI
-
+name: CI input probe
 on:
-  push:
-    branches:
-    - master
-    paths-ignore:
-    - "docs/**"
-    - "Formula/**"
-  pull_request:
-    paths-ignore:
-    - "docs/**"
-    - "Formula/**"
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: ${{ (github.event_name == 'workflow_dispatch' || 
-    github.run_attempt > 1) && (true) }}
-
-# ──────────────────────────────────────────────────────────────────────────────
-# This file is the single source of truth for "what must pass on a PR." Each job
-# delegates to a reusable workflow (the `_*.yml` files), which owns the actual
-# steps and matrices. Gating (needs / if) stays here in the orchestrator.
-# ──────────────────────────────────────────────────────────────────────────────
-
+  workflow_call:
+    inputs:
+      probe:
+        type: string
+        required: true
 jobs:
-  # Stage 1: Style checks
-  style:
-    uses: ./.github/workflows/_style.yml
-
-  # Stage 2: Build & test
-    permissions:
-      contents: read
-
-      actions: read
+  nested0:
+    uses: ./.github/workflows/alpha-bridge-ci-consumer.yml
+    with:
+      probe: ${{ inputs.probe }}
+      slot: '0'
     needs:
     - alpha_bridge_inputs
     if: |-
       ${{ (success()) && needs.alpha_bridge_inputs.outputs.changed == 'true' }}
-  test-linux:
+  nested1:
+    uses: ./.github/workflows/alpha-bridge-ci-consumer.yml
+    with:
+      probe: ${{ inputs.probe }}
+      slot: '1'
     needs:
-    - style
     - alpha_bridge_inputs
-    uses: ./.github/workflows/_test-linux.yml
-
-    permissions:
-      contents: read
-
-      actions: read
     if: |-
       ${{ (success()) && needs.alpha_bridge_inputs.outputs.changed == 'true' }}
-  test-macos:
+  nested2:
+    uses: ./.github/workflows/alpha-bridge-ci-consumer.yml
+    with:
+      probe: ${{ inputs.probe }}
+      slot: '2'
     needs:
-    - style
     - alpha_bridge_inputs
-    uses: ./.github/workflows/_test-macos.yml
-
-    permissions:
-      contents: read
-
-      actions: read
-    if: |-
-      ${{ (success()) && needs.alpha_bridge_inputs.outputs.changed == 'true' }}
-  trickops:
-    needs:
-    - style
-    - alpha_bridge_inputs
-    uses: ./.github/workflows/_trickops.yml
-
-    permissions:
-      contents: read
-
-      actions: read
-    if: |-
-      ${{ (success()) && needs.alpha_bridge_inputs.outputs.changed == 'true' }}
-  code-coverage:
-    needs:
-    - style
-    - alpha_bridge_inputs
-    uses: ./.github/workflows/_code-coverage.yml
-    permissions:
-      contents: read
-
-      actions: read
     if: |-
       ${{ (success()) && needs.alpha_bridge_inputs.outputs.changed == 'true' }}
   alpha_bridge_inputs:
@@ -95,7 +40,7 @@ jobs:
       actions: read
       contents: read
     concurrency:
-      group: alpha-bridge-inputs-a4b864f174de0c7f-${{ github.workflow }}-${{ 
+      group: alpha-bridge-inputs-79967559e6c019b6-${{ github.workflow }}-${{ 
         github.sha }}-${{ github.event.schedule || github.event_name }}
       cancel-in-progress: false
       queue: max
@@ -108,15 +53,12 @@ jobs:
         GH_TOKEN: ${{ github.token }}
         AB_REPOSITORY: ${{ github.repository }}
         AB_RUN_ID: ${{ github.run_id }}
-        AB_HEAD_SHA: ${{ (github.event_name == 'schedule' || github.event_name 
-          == 'workflow_run') && '04f492da4eb93caa2873d02509353497aa65e4b2' || 
-          github.sha }}
-        AB_REF: ${{ (github.event_name == 'schedule' || github.event_name == 
-          'workflow_run') && 'refs/heads/master' || github.ref }}
+        AB_HEAD_SHA: ${{ github.sha }}
+        AB_REF: ${{ github.ref }}
         AB_WORKFLOW_DIGEST: 
-          956b543dd6ed3cee92c4f200900c776fa8eb1273ec07abb253eec8edbdbd17f0
-        AB_EVENT: ${{ github.event_name }}
-        AB_SCHEDULE: ${{ github.event.schedule || '' }}
+          bd367cba8e8810e351ab7c5db42453bb5c3cdfbec864efe5672bbab3a0053290
+        AB_EVENT: schedule
+        AB_SCHEDULE: alpha-bridge verification
         AB_VARIABLES: ${{ toJSON(vars) }}
         AB_INPUTS: ${{ toJSON(inputs) }}
         AB_DEFAULT_PERMISSIONS: read
